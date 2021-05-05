@@ -95,7 +95,7 @@ class ResetPasswordView(PasswordResetView):
 
   def post(self, request):
     super().post(request)
-    last_saved_email = os.listdir('sent_emails')[-1]
+    last_saved_email = os.listdir('staticfiles/sent_emails')[-1]
     with open(f"sent_emails/{last_saved_email}") as sent_mail:
       reset_url = sent_mail.readlines()[-11].split(' ')[-1]
       
