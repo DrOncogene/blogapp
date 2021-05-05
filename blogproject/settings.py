@@ -130,7 +130,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGIN_REDIRECT_URL = 'home'
 
-EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
 EMAIL_FILE_PATH = os.path.join(BASE_DIR, 'staticfiles/sent_emails')
+EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
 
 django_heroku.settings(locals())
