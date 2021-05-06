@@ -12,7 +12,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.auth.forms import UserCreationForm
 from django.utils.decorators import method_decorator
 from django.http import HttpResponse, HttpResponseRedirect
-from .forms import CommentForm, NewPostForm
+from .forms import CommentForm, NewPostForm, SignUpForm
 
 from .models import  Post, Comment
 # Create your views here.
@@ -80,7 +80,7 @@ class SignUpView(CreateView):
   model = User
   success_url = reverse_lazy('login')
   template_name = 'blogapp/registration/register.html'
-  form_class = UserCreationForm
+  form_class = SignUpForm
   # fields = ['username', 'email', 'first_name', 'last_name', 'password']
 
 class SigninView(LoginView):
