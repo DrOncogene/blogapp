@@ -5,8 +5,8 @@ from django.contrib.auth.models import AbstractUser
 # Create your models here.
 
 class Author(AbstractUser):
-  groups = models.ForeignKey("auth.Group", on_delete=models.CASCADE, related_name='group')
-  user_permissions = models.ForeignKey("auth.Permission", on_delete=models.CASCADE, related_name='permission')
+  groups = models.ForeignKey("auth.Group", on_delete=models.CASCADE, related_name='group', null=True)
+  user_permissions = models.ForeignKey("auth.Permission", on_delete=models.CASCADE, related_name='permission', null=True)
   pass
 
 class Post(models.Model):
