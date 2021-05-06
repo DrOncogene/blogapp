@@ -14,7 +14,7 @@ from django.utils.decorators import method_decorator
 from django.http import HttpResponse, HttpResponseRedirect
 from .forms import CommentForm, NewPostForm, SignUpForm
 
-from .models import  Post, Comment, User
+from .models import  Post, Comment, Author
 # Create your views here.
 
 class BlogListView(ListView):

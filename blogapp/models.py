@@ -4,14 +4,14 @@ from django.contrib.auth.models import AbstractUser
 
 # Create your models here.
 
-class User(AbstractUser):
+class Author(AbstractUser):
   groups = models.ForeignKey("auth.Group", on_delete=models.CASCADE, related_name='group')
   user_permissions = models.ForeignKey("auth.Permission", on_delete=models.CASCADE, related_name='permission')
   pass
 
 class Post(models.Model):
   title = models.CharField(max_length=200)
-  author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='posts')
+  author = models.ForeignKey(Author, on_delete=models.CASCADE, related_name='posts')
   body = models.TextField()
 
   def __str__(self):
@@ -22,7 +22,7 @@ class Post(models.Model):
 
 class Comment(models.Model):
   comment = models.TextField(null=True)
-  commenter = models.ForeignKey(User, on_delete=models.CASCADE, related_name='comments')
+  commenter = models.ForeignKey(Author, on_delete=models.CASCADE, related_name='comments')
   post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='comments')
   date = models.DateTimeField(auto_now=True)
 

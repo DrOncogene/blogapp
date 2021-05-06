@@ -1,5 +1,5 @@
 from django import forms
-from .models import Post, User
+from .models import Post, Author
 from django.contrib.auth import forms as auth_forms
 
 class CommentForm(forms.Form):
@@ -12,5 +12,5 @@ class NewPostForm(forms.ModelForm):
 
 class SignUpForm(forms.ModelForm):
   class Meta:
-    model = User
+    model = Author
     fields = ['username', 'email', 'first_name', 'last_name', 'password']
