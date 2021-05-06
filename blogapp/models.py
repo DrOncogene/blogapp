@@ -5,7 +5,8 @@ from django.contrib.auth.models import AbstractUser
 # Create your models here.
 
 class User(AbstractUser):
-  # groups = models.
+  groups = models.ForeignKey("auth.Group", on_delete=models.CASCADE, related_name='group')
+  user_permissions = models.ForeignKey("auth.Permission", on_delete=models.CASCADE, related_name='permission')
   pass
 
 class Post(models.Model):
