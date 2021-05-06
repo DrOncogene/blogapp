@@ -9,6 +9,7 @@ from django.shortcuts import reverse, render
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from django.contrib.auth.forms import UserCreationForm
 from django.utils.decorators import method_decorator
 from django.http import HttpResponse, HttpResponseRedirect
 from .forms import CommentForm, NewPostForm
@@ -79,6 +80,7 @@ class SignUpView(CreateView):
   model = User
   success_url = reverse_lazy('login')
   template_name = 'blogapp/registration/register.html'
+  form_class = UserCreationForm
   fields = ['username', 'email', 'first_name', 'last_name', 'password']
 
 class SigninView(LoginView):
