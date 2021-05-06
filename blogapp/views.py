@@ -81,7 +81,7 @@ class SignUpView(CreateView):
   success_url = reverse_lazy('login')
   template_name = 'blogapp/registration/register.html'
   form_class = UserCreationForm
-  fields = ['username', 'email', 'first_name', 'last_name', 'password']
+  # fields = ['username', 'email', 'first_name', 'last_name', 'password']
 
 class SigninView(LoginView):
   # redirect_field_name = reverse_lazy('home')
