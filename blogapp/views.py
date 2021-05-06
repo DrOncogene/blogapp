@@ -14,7 +14,7 @@ from django.utils.decorators import method_decorator
 from django.http import HttpResponse, HttpResponseRedirect
 from .forms import CommentForm, NewPostForm, SignUpForm
 
-from .models import  Post, Comment
+from .models import  Post, Comment, User
 # Create your views here.
 
 class BlogListView(ListView):
@@ -77,7 +77,7 @@ class PostDeleteView(UserPassesTestMixin, DeleteView):
     return Post.objects.get(id=self.kwargs['pk']) in self.request.user.posts.all()
   
 class SignUpView(CreateView):
-  model = User
+  # model = User
   success_url = reverse_lazy('login')
   template_name = 'blogapp/registration/register.html'
   form_class = SignUpForm
