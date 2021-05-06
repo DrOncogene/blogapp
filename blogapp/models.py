@@ -1,16 +1,16 @@
 from django.db import models
 from django.shortcuts import reverse
-# from django.contrib.auth.models import AbstractBaseUser
+from django.contrib.auth.models import AbstractUser
 
 # Create your models here.
 
-# class User(AbstractBaseUser):
-#   # groups = models.
-#   pass
+class User(AbstractUser):
+  # groups = models.
+  pass
 
 class Post(models.Model):
   title = models.CharField(max_length=200)
-  author = models.ForeignKey('auth.User', on_delete=models.CASCADE, related_name='posts')
+  author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='posts')
   body = models.TextField()
 
   def __str__(self):
@@ -21,7 +21,7 @@ class Post(models.Model):
 
 class Comment(models.Model):
   comment = models.TextField(null=True)
-  commenter = models.ForeignKey("auth.User", on_delete=models.CASCADE, related_name='comments')
+  commenter = models.ForeignKey(User, on_delete=models.CASCADE, related_name='comments')
   post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='comments')
   date = models.DateTimeField(auto_now=True)
 
