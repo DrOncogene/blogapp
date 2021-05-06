@@ -13,4 +13,5 @@ class NewPostForm(forms.ModelForm):
 
 class SignUpForm(auth_forms.UserCreationForm):
   class Meta:
+    model = 'django.contrib.auth.models.User'
     fields = ['username', 'email', 'first_name', 'last_name', 'password']
