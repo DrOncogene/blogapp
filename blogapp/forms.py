@@ -10,7 +10,7 @@ class NewPostForm(forms.ModelForm):
     model = Post
     fields = ['title', 'body']
 
-class SignUpForm(forms.ModelForm, UserCreationForm):
+class SignUpForm(UserCreationForm):
   class Meta:
     model = Author
     fields = ['username', 'email', 'first_name', 'last_name']

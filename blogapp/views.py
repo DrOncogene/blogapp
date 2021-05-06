@@ -77,7 +77,7 @@ class PostDeleteView(UserPassesTestMixin, DeleteView):
     return Post.objects.get(id=self.kwargs['pk']) in self.request.user.posts.all()
   
 class SignUpView(CreateView):
-  # model = User
+  model = Author
   success_url = reverse_lazy('login')
   template_name = 'blogapp/registration/register.html'
   form_class = SignUpForm
