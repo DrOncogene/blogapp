@@ -11,7 +11,6 @@ class NewPostForm(forms.ModelForm):
     model = Post
     fields = ['title', 'body']
 
-class SignUpForm(auth_forms.UserCreationForm, forms.ModelForm):
+class SignUpForm(auth_forms.UserCreationForm):
   class Meta:
-    model: User
     fields = ['username', 'email', 'first_name', 'last_name', 'password']
