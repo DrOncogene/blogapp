@@ -1,6 +1,6 @@
 from django import forms
 from .models import Post, Author
-from django.contrib.auth import forms as auth_forms
+from django.contrib.auth.forms import UserCreationForm
 
 class CommentForm(forms.Form):
   comment = forms.CharField(widget=forms.Textarea)
@@ -10,7 +10,7 @@ class NewPostForm(forms.ModelForm):
     model = Post
     fields = ['title', 'body']
 
-class SignUpForm(forms.ModelForm):
+class SignUpForm(forms.ModelForm, UserCreationForm):
   class Meta:
     model = Author
-    fields = ['username', 'email', 'first_name', 'last_name', 'password']
+    fields = ['username', 'email', 'first_name', 'last_name']
